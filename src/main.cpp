@@ -1,5 +1,3 @@
-
-
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "shader.h"
@@ -58,7 +56,7 @@ int main()
 #endif
 
     
-    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Futuristic Emerald Isle", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Toward a Futuristic Emerald Isle", NULL, NULL);
     if (!window)
     {
         std::cerr << "Failed to create GLFW window\n";
@@ -224,28 +222,191 @@ int main()
     GLint lightColorLoc = glGetUniformLocation(ourShader.Program, "lightColor");
     GLint viewPosLoc = glGetUniformLocation(ourShader.Program, "viewPos");
     GLint objectColorLoc = glGetUniformLocation(ourShader.Program, "objectColor");
+    GLint fogColorLoc = glGetUniformLocation(ourShader.Program, "fogColor");
+    GLint fogDensityLoc = glGetUniformLocation(ourShader.Program, "fogDensity");
 
     
     if(modelLoc == -1 || viewLoc == -1 || projLoc == -1 ||
        lightPosLoc == -1 || lightColorLoc == -1 ||
-       viewPosLoc == -1 || objectColorLoc == -1)
+       viewPosLoc == -1 || objectColorLoc == -1 ||
+       fogColorLoc == -1 || fogDensityLoc == -1)
     {
         std::cerr << "Error: One or more uniform locations not found.\n";
     }
 
     
-    glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
-    glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
-    glm::vec3 objectColor(0.4f, 0.6f, 0.9f);
+    glm::vec3 lightPos(2.0f, 2.0f, 2.0f); 
+    glm::vec3 lightColor(1.0f, 1.0f, 1.0f); 
+    glm::vec3 objectColor(1.0f, 1.0f, 1.0f); 
+    glm::vec3 fogColor(0.05f, 0.2f, 0.1f); 
+    float fogDensity = 0.05f;
+
+    
+    
+    GLfloat lightVertices[] = {
+        
+        -0.05f, -0.05f, -0.05f,
+         0.05f, -0.05f, -0.05f,
+         0.05f,  0.05f, -0.05f,
+         0.05f,  0.05f, -0.05f,
+        -0.05f,  0.05f, -0.05f,
+        -0.05f, -0.05f, -0.05f,
+
+        -0.05f, -0.05f,  0.05f,
+         0.05f, -0.05f,  0.05f,
+         0.05f,  0.05f,  0.05f,
+         0.05f,  0.05f,  0.05f,
+        -0.05f,  0.05f,  0.05f,
+        -0.05f, -0.05f,  0.05f,
+
+        -0.05f,  0.05f,  0.05f,
+        -0.05f,  0.05f, -0.05f,
+        -0.05f, -0.05f, -0.05f,
+        -0.05f, -0.05f, -0.05f,
+        -0.05f, -0.05f,  0.05f,
+        -0.05f,  0.05f,  0.05f,
+
+         0.05f,  0.05f,  0.05f,
+         0.05f,  0.05f, -0.05f,
+         0.05f, -0.05f, -0.05f,
+         0.05f, -0.05f, -0.05f,
+         0.05f, -0.05f,  0.05f,
+         0.05f,  0.05f,  0.05f,
+
+        -0.05f, -0.05f, -0.05f,
+         0.05f, -0.05f, -0.05f,
+         0.05f, -0.05f,  0.05f,
+         0.05f, -0.05f,  0.05f,
+        -0.05f, -0.05f,  0.05f,
+        -0.05f, -0.05f, -0.05f,
+
+        -0.05f,  0.05f, -0.05f,
+         0.05f,  0.05f, -0.05f,
+         0.05f,  0.05f,  0.05f,
+         0.05f,  0.05f,  0.05f,
+        -0.05f,  0.05f,  0.05f,
+        -0.05f,  0.05f, -0.05f
+    };
+
+    
+    GLuint lightVBO, lightVAO;
+    glGenVertexArrays(1, &lightVAO);
+    glGenBuffers(1, &lightVBO);
+
+    
+    glBindVertexArray(lightVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, lightVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(lightVertices), lightVertices, GL_STATIC_DRAW);
+
+    
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+    glEnableVertexAttribArray(0);
+
+    glBindVertexArray(0); 
+
+    std::cout << "Light VAO and VBO set up.\n";
+
+    
+    Shader lightShader("../shaders/light_vertex_shader.glsl", "../shaders/light_fragment_shader.glsl");
+    lightShader.use();
+    glUniform3f(glGetUniformLocation(lightShader.Program, "lightColor"), lightColor.x, lightColor.y, lightColor.z);
+
+    
+    
+    GLfloat groundVertices[] = {
+        
+        
+        -5.0f, -0.5f, -5.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f,
+         5.0f, -0.5f, -5.0f,  0.0f, 1.0f, 0.0f,  5.0f, 0.0f,
+         5.0f, -0.5f,  5.0f,  0.0f, 1.0f, 0.0f,  5.0f, 5.0f,
+
+         5.0f, -0.5f,  5.0f,  0.0f, 1.0f, 0.0f,  5.0f, 5.0f,
+        -5.0f, -0.5f,  5.0f,  0.0f, 1.0f, 0.0f,  0.0f, 5.0f,
+        -5.0f, -0.5f, -5.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f
+    };
+
+    
+    GLuint groundVBO, groundVAO;
+    glGenVertexArrays(1, &groundVAO);
+    glGenBuffers(1, &groundVBO);
+
+    glBindVertexArray(groundVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, groundVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(groundVertices), groundVertices, GL_STATIC_DRAW);
+
+    
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
+    glEnableVertexAttribArray(0);
+
+    
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(1);
+
+    
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(2);
+
+    glBindVertexArray(0); 
+
+    std::cout << "Ground VAO and VBO set up.\n";
+
+    
+    GLuint groundTexture;
+    glGenTextures(1, &groundTexture);
+    glBindTexture(GL_TEXTURE_2D, groundTexture); 
+
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    
+    int groundWidth, groundHeight, groundNrChannels;
+    
+    stbi_set_flip_vertically_on_load(true);
+    unsigned char *groundData = stbi_load("../textures/ground_texture.jpg", &groundWidth, &groundHeight, &groundNrChannels, 0);
+    if (groundData)
+    {
+        GLenum format;
+        if (groundNrChannels == 1)
+            format = GL_RED;
+        else if (groundNrChannels == 3)
+            format = GL_RGB;
+        else if (groundNrChannels == 4)
+            format = GL_RGBA;
+
+        glTexImage2D(GL_TEXTURE_2D, 0, format, groundWidth, groundHeight, 0, format, GL_UNSIGNED_BYTE, groundData);
+        glGenerateMipmap(GL_TEXTURE_2D);
+        std::cout << "Ground texture loaded successfully: ground_texture.jpg\n";
+    }
+    else
+    {
+        std::cerr << "Failed to load ground texture\n";
+    }
+    stbi_image_free(groundData);
+
+    
+    
+    
+
+    
+    ourShader.use();
+    glUniform3fv(objectColorLoc, 1, glm::value_ptr(objectColor));
+    glUniform3fv(fogColorLoc, 1, glm::value_ptr(fogColor));
+    glUniform1f(fogDensityLoc, fogDensity);
+
+    
+    
 
     std::cout << "Entering main loop.\n";
 
     
     while (!glfwWindowShouldClose(window))
     {
-        
-        
-
         
         float currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
@@ -255,7 +416,11 @@ int main()
         processInput(window);
 
         
-        glClearColor(0.1f, 0.12f, 0.15f, 1.0f);
+        lightPos.x = sin(glfwGetTime()) * 2.0f;
+        lightPos.z = cos(glfwGetTime()) * 2.0f;
+
+        
+        glClearColor(0.05f, 0.2f, 0.1f, 1.0f); 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         
@@ -278,7 +443,6 @@ int main()
         glUniform3fv(lightPosLoc, 1, glm::value_ptr(lightPos));
         glUniform3fv(lightColorLoc, 1, glm::value_ptr(lightColor));
         glUniform3fv(viewPosLoc, 1, glm::value_ptr(camera.Position));
-        glUniform3fv(objectColorLoc, 1, glm::value_ptr(objectColor));
 
         
         glActiveTexture(GL_TEXTURE0);
@@ -290,11 +454,33 @@ int main()
         glBindVertexArray(0);
 
         
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+        glm::mat4 groundModel = glm::mat4(1.0f);
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(groundModel));
 
         
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture1); 
+
+        glBindVertexArray(groundVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
+        glBindVertexArray(0);
+
         
+        lightShader.use();
+        glm::mat4 lightModel = glm::mat4(1.0f);
+        lightModel = glm::translate(lightModel, lightPos);
+        lightModel = glm::scale(lightModel, glm::vec3(1.0f)); 
+        glUniformMatrix4fv(glGetUniformLocation(lightShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(lightModel));
+        glUniformMatrix4fv(glGetUniformLocation(lightShader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
+        glUniformMatrix4fv(glGetUniformLocation(lightShader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+        glBindVertexArray(lightVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glBindVertexArray(0);
+
+        
+        glfwSwapBuffers(window);
+        glfwPollEvents();
     }
 
     std::cout << "Exiting main loop.\n";
@@ -303,6 +489,11 @@ int main()
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
     glDeleteTextures(1, &texture1);
+    glDeleteVertexArrays(1, &lightVAO);
+    glDeleteBuffers(1, &lightVBO);
+    glDeleteVertexArrays(1, &groundVAO);
+    glDeleteBuffers(1, &groundVBO);
+    glDeleteTextures(1, &groundTexture); 
 
     
     glfwTerminate();

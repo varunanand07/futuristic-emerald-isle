@@ -129,6 +129,30 @@ FuturisticEmeraldIsle/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FuturisticEmeraldIsle.dir/build.make CMakeFiles/FuturisticEmeraldIsle.dir/build
 .PHONY : FuturisticEmeraldIsle/fast
 
+src/camera.o: src/camera.cpp.o
+.PHONY : src/camera.o
+
+# target to build an object file
+src/camera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FuturisticEmeraldIsle.dir/build.make CMakeFiles/FuturisticEmeraldIsle.dir/src/camera.cpp.o
+.PHONY : src/camera.cpp.o
+
+src/camera.i: src/camera.cpp.i
+.PHONY : src/camera.i
+
+# target to preprocess a source file
+src/camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FuturisticEmeraldIsle.dir/build.make CMakeFiles/FuturisticEmeraldIsle.dir/src/camera.cpp.i
+.PHONY : src/camera.cpp.i
+
+src/camera.s: src/camera.cpp.s
+.PHONY : src/camera.s
+
+# target to generate assembly for a file
+src/camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FuturisticEmeraldIsle.dir/build.make CMakeFiles/FuturisticEmeraldIsle.dir/src/camera.cpp.s
+.PHONY : src/camera.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -186,6 +210,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... FuturisticEmeraldIsle"
+	@echo "... src/camera.o"
+	@echo "... src/camera.i"
+	@echo "... src/camera.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

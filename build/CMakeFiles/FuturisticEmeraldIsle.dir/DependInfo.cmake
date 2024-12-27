@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/varunanand/futuristic-emerald-isle/src/camera.cpp" "CMakeFiles/FuturisticEmeraldIsle.dir/src/camera.cpp.o" "gcc" "CMakeFiles/FuturisticEmeraldIsle.dir/src/camera.cpp.o.d"
   "/Users/varunanand/futuristic-emerald-isle/src/main.cpp" "CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o" "gcc" "CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o.d"
   "/Users/varunanand/futuristic-emerald-isle/src/shader.cpp" "CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o" "gcc" "CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o.d"
   )

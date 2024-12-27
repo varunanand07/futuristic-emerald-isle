@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/FuturisticEmeraldIsle.dir/src/camera.cpp.o"
+  "CMakeFiles/FuturisticEmeraldIsle.dir/src/camera.cpp.o.d"
   "CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o"
   "CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o.d"
   "CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o"

@@ -81,12 +81,12 @@ clean: CMakeFiles/FuturisticEmeraldIsle.dir/clean
 CMakeFiles/FuturisticEmeraldIsle.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FuturisticEmeraldIsle.dir/build.make CMakeFiles/FuturisticEmeraldIsle.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FuturisticEmeraldIsle.dir/build.make CMakeFiles/FuturisticEmeraldIsle.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/varunanand/futuristic-emerald-isle/build/CMakeFiles --progress-num=1,2,3 "Built target FuturisticEmeraldIsle"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/varunanand/futuristic-emerald-isle/build/CMakeFiles --progress-num=1,2,3,4 "Built target FuturisticEmeraldIsle"
 .PHONY : CMakeFiles/FuturisticEmeraldIsle.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/FuturisticEmeraldIsle.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/varunanand/futuristic-emerald-isle/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/varunanand/futuristic-emerald-isle/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/FuturisticEmeraldIsle.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/varunanand/futuristic-emerald-isle/build/CMakeFiles 0
 .PHONY : CMakeFiles/FuturisticEmeraldIsle.dir/rule
