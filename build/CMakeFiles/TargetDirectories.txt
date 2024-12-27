@@ -1,0 +1,3 @@
+/Users/varunanand/futuristic-emerald-isle/build/CMakeFiles/FuturisticEmeraldIsle.dir
+/Users/varunanand/futuristic-emerald-isle/build/CMakeFiles/edit_cache.dir
+/Users/varunanand/futuristic-emerald-isle/build/CMakeFiles/rebuild_cache.dir
