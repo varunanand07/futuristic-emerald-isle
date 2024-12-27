@@ -3,7 +3,9 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "shader.h"
-#include "camera.h" 
+#include "camera.h"
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 #include <iostream>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -28,8 +30,17 @@ bool firstMouse = true;
 float deltaTime = 0.0f;	
 float lastFrame = 0.0f;
 
+
+void glfw_error_callback(int error, const char* description)
+{
+    std::cerr << "GLFW Error (" << error << "): " << description << std::endl;
+}
+
 int main()
 {
+    
+    glfwSetErrorCallback(glfw_error_callback);
+
     
     if (!glfwInit())
     {
@@ -54,6 +65,8 @@ int main()
         glfwTerminate();
         return -1;
     }
+
+    
     glfwMakeContextCurrent(window);
 
     
@@ -65,9 +78,6 @@ int main()
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     
-    glfwSwapInterval(1);
-
-    
     glewExperimental = GL_TRUE; 
     if (glewInit() != GLEW_OK)
     {
@@ -77,63 +87,66 @@ int main()
 
     
     glViewport(0, 0, WIDTH, HEIGHT);
+    std::cout << "Viewport set to " << WIDTH << "x" << HEIGHT << ".\n";
 
     
     glEnable(GL_DEPTH_TEST);
+    std::cout << "Depth testing enabled.\n";
 
     
     Shader ourShader("../shaders/vertex_shader.glsl", "../shaders/fragment_shader.glsl");
+    std::cout << "Shaders compiled and linked.\n";
 
     
     GLfloat vertices[] = {
         
         
-        -0.5f, -0.5f,  0.5f,   0.0f,  0.0f,  1.0f, 
-         0.5f, -0.5f,  0.5f,   0.0f,  0.0f,  1.0f, 
-         0.5f,  0.5f,  0.5f,   0.0f,  0.0f,  1.0f, 
-         0.5f,  0.5f,  0.5f,   0.0f,  0.0f,  1.0f, 
-        -0.5f,  0.5f,  0.5f,   0.0f,  0.0f,  1.0f, 
-        -0.5f, -0.5f,  0.5f,   0.0f,  0.0f,  1.0f, 
+        -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f, 0.0f, 
+         0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f, 0.0f, 
+         0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f, 1.0f, 
+         0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  1.0f, 1.0f, 
+        -0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f, 1.0f, 
+        -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,  0.0f, 0.0f, 
 
         
-        -0.5f, -0.5f, -0.5f,   0.0f,  0.0f, -1.0f, 
-         0.5f, -0.5f, -0.5f,   0.0f,  0.0f, -1.0f, 
-         0.5f,  0.5f, -0.5f,   0.0f,  0.0f, -1.0f, 
-         0.5f,  0.5f, -0.5f,   0.0f,  0.0f, -1.0f, 
-        -0.5f,  0.5f, -0.5f,   0.0f,  0.0f, -1.0f, 
-        -0.5f, -0.5f, -0.5f,   0.0f,  0.0f, -1.0f, 
+        -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f, 
+         0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f, 
+         0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f, 
+         0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f, 
+        -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f, 
+        -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f, 
 
         
-        -0.5f,  0.5f,  0.5f,  -1.0f,  0.0f,  0.0f, 
-        -0.5f,  0.5f, -0.5f,  -1.0f,  0.0f,  0.0f, 
-        -0.5f, -0.5f, -0.5f,  -1.0f,  0.0f,  0.0f, 
-        -0.5f, -0.5f, -0.5f,  -1.0f,  0.0f,  0.0f, 
-        -0.5f, -0.5f,  0.5f,  -1.0f,  0.0f,  0.0f, 
-        -0.5f,  0.5f,  0.5f,  -1.0f,  0.0f,  0.0f, 
+        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f, 
+        -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 1.0f, 
+        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f, 
+        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f, 
+        -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 0.0f, 
+        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f, 
 
         
-         0.5f,  0.5f,  0.5f,   1.0f,  0.0f,  0.0f, 
-         0.5f,  0.5f, -0.5f,   1.0f,  0.0f,  0.0f, 
-         0.5f, -0.5f, -0.5f,   1.0f,  0.0f,  0.0f, 
-         0.5f, -0.5f, -0.5f,   1.0f,  0.0f,  0.0f, 
-         0.5f, -0.5f,  0.5f,   1.0f,  0.0f,  0.0f, 
-         0.5f,  0.5f,  0.5f,   1.0f,  0.0f,  0.0f, 
+         0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f, 
+         0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f, 
+         0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f, 
+         0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f, 
+         0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f, 
+         0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f, 
 
         
-        -0.5f,  0.5f, -0.5f,   0.0f,  1.0f,  0.0f, 
-         0.5f,  0.5f, -0.5f,   0.0f,  1.0f,  0.0f, 
-         0.5f,  0.5f,  0.5f,   0.0f,  1.0f,  0.0f, 
-         0.5f,  0.5f,  0.5f,   0.0f,  1.0f,  0.0f, 
-        -0.5f,  0.5f,  0.5f,   0.0f,  1.0f,  0.0f, 
-        -0.5f,  0.5f, -0.5f,   0.0f,  1.0f,  0.0f, 
+        -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f, 
+         0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 1.0f, 
+         0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f, 
+         0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f, 
+        -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f, 
+        -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f, 
 
         
-        -0.5f, -0.5f, -0.5f,   0.0f, -1.0f,  0.0f, 
-         0.5f, -0.5f, -0.5f,   0.0f, -1.0f,  0.0f, 
-         0.5f, -0.5f,  0.5f,   0.0f, -1.0f,  0.0f, 
-         0.5f, -0.5f,  0.5f,   0.0f, -1.0f,  0.0f, 
-        -0.5f, -0.5f,  0.5f,   0.0f, -1.0f,  0.0f, 
-        -0.5f, -0.5f, -0.5f,   0.0f, -1.0f,  0.0f  
+        -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f, 
+         0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f, 
+         0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f, 
+         0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f, 
+        -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f, 
+        -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f  
     };
 
     GLuint VBO, VAO;
@@ -147,14 +160,61 @@ int main()
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
     
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
     glEnableVertexAttribArray(0);
 
     
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
     glEnableVertexAttribArray(1);
 
+    
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(2);
+
     glBindVertexArray(0); 
+
+    std::cout << "VAO and VBO set up.\n";
+
+    
+    GLuint texture1;
+    glGenTextures(1, &texture1);
+    glBindTexture(GL_TEXTURE_2D, texture1); 
+
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    
+    int width, height, nrChannels;
+    
+    stbi_set_flip_vertically_on_load(true);
+    unsigned char *data = stbi_load("../textures/container.jpg", &width, &height, &nrChannels, 0);
+    if (data)
+    {
+        GLenum format;
+        if (nrChannels == 1)
+            format = GL_RED;
+        else if (nrChannels == 3)
+            format = GL_RGB;
+        else if (nrChannels == 4)
+            format = GL_RGBA;
+
+        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+        std::cout << "Texture loaded successfully: container.jpg\n";
+    }
+    else
+    {
+        std::cerr << "Failed to load texture\n";
+    }
+    stbi_image_free(data);
+
+    
+    ourShader.use(); 
+    glUniform1i(glGetUniformLocation(ourShader.Program, "texture1"), 0);
 
     
     GLint modelLoc = glGetUniformLocation(ourShader.Program, "model");
@@ -166,13 +226,26 @@ int main()
     GLint objectColorLoc = glGetUniformLocation(ourShader.Program, "objectColor");
 
     
+    if(modelLoc == -1 || viewLoc == -1 || projLoc == -1 ||
+       lightPosLoc == -1 || lightColorLoc == -1 ||
+       viewPosLoc == -1 || objectColorLoc == -1)
+    {
+        std::cerr << "Error: One or more uniform locations not found.\n";
+    }
+
+    
     glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
     glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
     glm::vec3 objectColor(0.4f, 0.6f, 0.9f);
 
+    std::cout << "Entering main loop.\n";
+
     
     while (!glfwWindowShouldClose(window))
     {
+        
+        
+
         
         float currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
@@ -208,17 +281,28 @@ int main()
         glUniform3fv(objectColorLoc, 1, glm::value_ptr(objectColor));
 
         
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture1);
+
+        
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
 
         
         glfwSwapBuffers(window);
+        glfwPollEvents();
+
+        
+        
     }
+
+    std::cout << "Exiting main loop.\n";
 
     
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
+    glDeleteTextures(1, &texture1);
 
     
     glfwTerminate();
@@ -244,13 +328,16 @@ void processInput(GLFWwindow *window)
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
-    
+    std::cout << "Framebuffer resized to " << width << "x" << height << "\n";
     glViewport(0, 0, width, height);
 }
 
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 {
+    
+    
+
     if(firstMouse)
     {
         lastX = xpos;
@@ -270,5 +357,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
+    
+    
     camera.ProcessMouseScroll(yoffset);
 }
