@@ -15,6 +15,10 @@
 #include <cmath>
 #include <random>
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 const GLuint WIDTH = 800, HEIGHT = 600;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -22,7 +26,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow *window);
 
-Camera camera(glm::vec3(0.0f, 5.0f, 20.0f));
+Camera camera(glm::vec3(0.0f, 5.0f, 50.0f));
 float lastX = WIDTH / 2.0f;
 float lastY = HEIGHT / 2.0f;
 bool firstMouse = true;
@@ -30,17 +34,22 @@ bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
-float modelStartX = -50.0f;
-float modelEndX = 50.0f;
-float modelSpeed = 10.0f;
+float modelStartX = -100.0f;
+float modelEndX = 100.0f;
+float modelSpeed = 20.0f;
 
-std::vector<glm::vec3> buildingPositions = {
-    glm::vec3(-30.0f, 0.0f, -20.0f),
-    glm::vec3(-10.0f, 0.0f, -25.0f),
-    glm::vec3(10.0f, 0.0f, -15.0f),
-    glm::vec3(25.0f, 0.0f, -30.0f),
-    glm::vec3(40.0f, 0.0f, -10.0f)
+struct Spaceship {
+    glm::vec3 position;
+    glm::vec3 direction;
+    float speed;
 };
+
+std::vector<Spaceship> spaceships;
+
+std::vector<glm::vec3> buildingPositions;
+
+float minBuildingDistance = 5.0f;
+float minSpaceshipDistance = 10.0f;
 
 int main()
 {
@@ -179,20 +188,95 @@ int main()
         std::cerr << "Error: One or more uniform locations not found.\n";
     }
 
-    glm::vec3 lightPos(2.0f, 4.0f, 2.0f);
-    glm::vec3 lightColor(0.0f, 1.0f, 0.0f);
-    glm::vec3 objectColor(0.0f, 1.0f, 0.0f);
+    glm::vec3 lightPos(50.0f, 100.0f, 50.0f);
+    glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
+    glm::vec3 objectColor(1.0f, 1.0f, 1.0f);
     glm::vec3 fogColor(0.05f, 0.2f, 0.1f);
-    float fogDensity = 0.05f;
+    float fogDensity = 0.02f;
+
+    int spaceshipCount = 5;
+    float rangeX = 100.0f;
+    float rangeZ = 100.0f;
+
+    std::random_device rd_spaceship;
+    std::mt19937 gen_spaceship(rd_spaceship());
+    std::uniform_real_distribution<> dis_spaceshipX(-rangeX, rangeX);
+    std::uniform_real_distribution<> dis_spaceshipZ(-rangeZ, rangeZ);
+    std::uniform_real_distribution<> dis_spaceshipDir(0.0f, 360.0f);
+    std::uniform_real_distribution<> dis_spaceshipSpeed(5.0f, 15.0f);
+
+    for(int i = 0; i < spaceshipCount; ++i)
+    {
+        glm::vec3 pos;
+        bool validPosition = false;
+        while(!validPosition)
+        {
+            pos = glm::vec3(dis_spaceshipX(gen_spaceship), 15.0f, dis_spaceshipZ(gen_spaceship));
+
+            validPosition = true;
+            for(auto &existing : spaceships)
+            {
+                float distance = glm::distance(pos, existing.position);
+                if(distance < minSpaceshipDistance)
+                {
+                    validPosition = false;
+                    break;
+                }
+            }
+        }
+
+        float angle = dis_spaceshipDir(gen_spaceship);
+        glm::vec3 dir = glm::normalize(glm::vec3(cos(glm::radians(angle)), 0.0f, sin(glm::radians(angle))));
+
+        float speed = dis_spaceshipSpeed(gen_spaceship);
+
+        spaceships.push_back(Spaceship{ pos, dir, speed });
+    }
+
+    std::cout << "Initialized " << spaceships.size() << " spaceships.\n";
+
+    int numberOfBuildings = 100;
+
+    float buildingRangeX = 100.0f;
+    float buildingRangeZ = 100.0f;
+
+    std::random_device rd_building;
+    std::mt19937 gen_building(rd_building());
+    std::uniform_real_distribution<> dis_buildingX(-buildingRangeX, buildingRangeX);
+    std::uniform_real_distribution<> dis_buildingZ(-buildingRangeZ, buildingRangeZ);
+
+    for(int i = 0; i < numberOfBuildings; ++i)
+    {
+        glm::vec3 pos;
+        bool validPosition = false;
+        while(!validPosition)
+        {
+            pos = glm::vec3(dis_buildingX(gen_building), 0.0f, dis_buildingZ(gen_building));
+
+            validPosition = true;
+            for(auto &existingPos : buildingPositions)
+            {
+                float distance = glm::distance(pos, existingPos);
+                if(distance < minBuildingDistance)
+                {
+                    validPosition = false;
+                    break;
+                }
+            }
+        }
+        buildingPositions.push_back(pos);
+    }
+
+    std::cout << "Generated " << buildingPositions.size() << " random building positions.\n";
 
     GLfloat groundVertices[] = {
-        -50.0f, -1.0f, -50.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f,
-         50.0f, -1.0f, -50.0f,  0.0f, 1.0f, 0.0f,  50.0f, 0.0f,
-         50.0f, -1.0f,  50.0f,  0.0f, 1.0f, 0.0f,  50.0f, 50.0f,
+        -100.0f, -1.0f, -100.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f,
+         100.0f, -1.0f, -100.0f,  0.0f, 1.0f, 0.0f,  100.0f, 0.0f,
+         100.0f, -1.0f,  100.0f,  0.0f, 1.0f, 0.0f,  100.0f, 100.0f,
 
-         50.0f, -1.0f,  50.0f,  0.0f, 1.0f, 0.0f,  50.0f, 50.0f,
-        -50.0f, -1.0f,  50.0f,  0.0f, 1.0f, 0.0f,  0.0f, 50.0f,
-        -50.0f, -1.0f, -50.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f
+         100.0f, -1.0f,  100.0f,  0.0f, 1.0f, 0.0f,  100.0f, 100.0f,
+        -100.0f, -1.0f,  100.0f,  0.0f, 1.0f, 0.0f,  0.0f, 100.0f,
+        -100.0f, -1.0f, -100.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f
     };
 
     GLuint groundVBO, groundVAO;
@@ -321,50 +405,16 @@ int main()
     ourShader.use();
     glUniform1i(glGetUniformLocation(ourShader.Program, "texture3"), 2);
 
+    GLint isBuildingLoc = glGetUniformLocation(ourShader.Program, "isBuilding");
+    if(isBuildingLoc == -1)
+    {
+        std::cerr << "Error: 'isBuilding' uniform not found.\n";
+    }
+
     ourShader.use();
     glUniform3fv(objectColorLoc, 1, glm::value_ptr(objectColor));
     glUniform3fv(fogColorLoc, 1, glm::value_ptr(fogColor));
     glUniform1f(fogDensityLoc, fogDensity);
-
-    
-    buildingPositions.clear();
-
-    const int numberOfBuildings = 50;
-
-    const float rangeX = 50.0f;
-    const float rangeZ = 50.0f;
-
-    const float minDistance = 5.0f;
-
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<> disX(-rangeX, rangeX);
-    std::uniform_real_distribution<> disZ(-rangeZ, rangeZ);
-
-    for(int i = 0; i < numberOfBuildings; ++i)
-    {
-        bool validPosition = false;
-        glm::vec3 pos;
-        while(!validPosition)
-        {
-            pos = glm::vec3(disX(gen), 0.0f, disZ(gen));
-
-            validPosition = true;
-            for(auto &existingPos : buildingPositions)
-            {
-                float distance = glm::distance(pos, existingPos);
-                if(distance < minDistance)
-                {
-                    validPosition = false;
-                    break;
-                }
-            }
-        }
-        buildingPositions.push_back(pos);
-    }
-
-    std::cout << "Generated " << buildingPositions.size() << " random building positions.\n";
-
 
     std::cout << "Entering main loop.\n";
     while (!glfwWindowShouldClose(window))
@@ -384,7 +434,7 @@ int main()
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), 
-            static_cast<GLfloat>(WIDTH) / static_cast<GLfloat>(HEIGHT), 0.1f, 100.0f);
+            static_cast<GLfloat>(WIDTH) / static_cast<GLfloat>(HEIGHT), 0.1f, 1000.0f);
         glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 
         glUniform3fv(lightPosLoc, 1, glm::value_ptr(lightPos));
@@ -396,22 +446,81 @@ int main()
         glBindTexture(GL_TEXTURE_2D, modelTexture);
 
         glUniform1i(isGroundLoc, GL_FALSE);
-
-        float xPos = modelStartX + fmod(currentFrame * modelSpeed, modelEndX - modelStartX);
+        glUniform1i(isBuildingLoc, GL_FALSE);
 
         glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(xPos, 5.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(modelStartX + fmod(currentFrame * modelSpeed, modelEndX - modelStartX), 15.0f, 0.0f));
         model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        model = glm::scale(model, glm::vec3(0.005f, 0.005f, 0.005f));
+        model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
         myModel.Draw(ourShader);
 
 
 
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, modelTexture);
+
+        for(auto &ship : spaceships)
+        {
+            ship.position += ship.direction * ship.speed * deltaTime;
+
+            float boundary = 100.0f;
+            if(ship.position.x > boundary || ship.position.x < -boundary ||
+               ship.position.z > boundary || ship.position.z < -boundary)
+            {
+                std::random_device rd_ship;
+                std::mt19937 gen_ship(rd_ship());
+                std::uniform_real_distribution<> disX_ship(-rangeX, rangeX);
+                std::uniform_real_distribution<> disZ_ship(-rangeZ, rangeZ);
+                std::uniform_real_distribution<> disDir_ship(0.0f, 360.0f);
+                std::uniform_real_distribution<> disSpeed_ship(5.0f, 15.0f);
+
+                glm::vec3 newPos;
+                bool valid = false;
+                while(!valid)
+                {
+                    newPos = glm::vec3(disX_ship(gen_ship), 15.0f, disZ_ship(gen_ship));
+                    valid = true;
+                    for(auto &otherShip : spaceships)
+                    {
+                        if(&otherShip != &ship)
+                        {
+                            float distance = glm::distance(newPos, otherShip.position);
+                            if(distance < minSpaceshipDistance)
+                            {
+                                valid = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                float angle = disDir_ship(gen_ship);
+                glm::vec3 newDir = glm::normalize(glm::vec3(cos(glm::radians(angle)), 0.0f, sin(glm::radians(angle))));
+
+                float newSpeed = disSpeed_ship(gen_ship);
+
+                ship.position = newPos;
+                ship.direction = newDir;
+                ship.speed = newSpeed;
+            }
+
+            glm::mat4 shipModel = glm::mat4(1.0f);
+            shipModel = glm::translate(shipModel, ship.position);
+            shipModel = glm::rotate(shipModel, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+            shipModel = glm::scale(shipModel, glm::vec3(0.01f, 0.01f, 0.01f));
+            glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(shipModel));
+            myModel.Draw(ourShader);
+        }
+
+
+
         glActiveTexture(GL_TEXTURE2);
         glBindTexture(GL_TEXTURE_2D, buildingTexture);
+        glUniform1i(glGetUniformLocation(ourShader.Program, "texture3"), 2);
 
         glUniform1i(isGroundLoc, GL_FALSE);
+        glUniform1i(isBuildingLoc, GL_TRUE);
 
         glBindVertexArray(buildingVAO);
 
@@ -433,13 +542,19 @@ int main()
         glBindTexture(GL_TEXTURE_2D, groundTexture);
         glUniform1i(glGetUniformLocation(ourShader.Program, "texture2"), 1);
 
+        glm::vec3 emeraldGreen(0.0f, 0.8f, 0.0f);
+        glUniform3fv(objectColorLoc, 1, glm::value_ptr(emeraldGreen));
+
         glUniform1i(isGroundLoc, GL_TRUE);
+        glUniform1i(glGetUniformLocation(ourShader.Program, "isBuilding"), GL_FALSE);
 
         glm::mat4 groundModel = glm::mat4(1.0f);
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(groundModel));
         glBindVertexArray(groundVAO);
         glDrawArrays(GL_TRIANGLES, 0, 6);
         glBindVertexArray(0);
+
+        glUniform3fv(objectColorLoc, 1, glm::value_ptr(objectColor));
 
 
         glfwSwapBuffers(window);

@@ -5,33 +5,30 @@ in vec3 FragPos;
 in vec3 Normal;  
 in vec2 TexCoords; 
 
-// Texture samplers
+
 uniform sampler2D texture1; 
 uniform sampler2D texture2; 
-
+uniform sampler2D texture3; // Added for buildings
 
 uniform vec3 lightPos; 
 uniform vec3 lightColor;
 
-
 uniform vec3 viewPos;
 
-
 uniform vec3 objectColor;
-
 
 uniform vec3 fogColor;
 uniform float fogDensity;
 
-
 uniform bool isGround;
+uniform bool isBuilding; // Added for buildings
 
 void main()
 {
 
     float ambientStrength = 0.3;
     vec3 ambient = ambientStrength * lightColor;
-    	
+        
 
     vec3 norm = normalize(Normal);
     vec3 lightDir = normalize(lightPos - FragPos);
@@ -45,13 +42,15 @@ void main()
     vec3 reflectDir = reflect(-lightDir, norm);  
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
     vec3 specular = specularStrength * spec * lightColor;  
-    
+
 
     vec3 texColor;
     if (isGround)
-        texColor = texture(texture2, TexCoords).rgb; // Ground texture
+        texColor = texture(texture2, TexCoords).rgb; 
+    else if (isBuilding)
+        texColor = texture(texture3, TexCoords).rgb;
     else
-        texColor = texture(texture1, TexCoords).rgb; // Model texture
+        texColor = texture(texture1, TexCoords).rgb; 
 
 
     vec3 result = (ambient + diffuse + specular) * texColor * objectColor;
