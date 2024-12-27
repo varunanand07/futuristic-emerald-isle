@@ -1,3 +1,5 @@
+
+
 #include "shader.h"
 #include <fstream>
 #include <sstream>
@@ -11,8 +13,8 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
     std::ifstream vShaderFile;
     std::ifstream fShaderFile;
     
-    vShaderFile.exceptions(std::ifstream::badbit);
-    fShaderFile.exceptions(std::ifstream::badbit);
+    vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+    fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
     try
     {
         
@@ -31,7 +33,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
     }
     catch(std::ifstream::failure& e)
     {
-        std::cerr << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ\n";
+        std::cerr << "ERROR::SHADER::FILE_NOT_SUCCESSFULLY_READ\n";
     }
     const char* vShaderCode = vertexCode.c_str();
     const char* fShaderCode = fragmentCode.c_str();
@@ -54,7 +56,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
     fragment = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragment, 1, &fShaderCode, NULL);
     glCompileShader(fragment);
-   
+    
     glGetShaderiv(fragment, GL_COMPILE_STATUS, &success);
     if(!success)
     {
