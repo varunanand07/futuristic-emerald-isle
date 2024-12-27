@@ -35,6 +35,7 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o: /Users/varunanand/futuristi
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/arm/limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/arm/signal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/arm/types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/adjacent_find.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/all_of.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/any_of.h \
@@ -608,8 +609,10 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o: /Users/varunanand/futuristi
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/atomic \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/bit \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/bitset \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cassert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cctype \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cerrno \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cfloat \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/chrono \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/climits \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cmath \
@@ -627,6 +630,7 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o: /Users/varunanand/futuristi
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cwctype \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/errno.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/exception \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/float.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/functional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/initializer_list \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ios \
@@ -667,6 +671,7 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o: /Users/varunanand/futuristi
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/errno.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/float.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/libkern/_OSByteOrder.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/libkern/arm/OSByteOrder.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/limits.h \
@@ -793,13 +798,263 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o: /Users/varunanand/futuristi
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/xlocale/_wchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/xlocale/_wctype.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/__stddef_max_align_t.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/float.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/limits.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdint.h \
   /Users/varunanand/futuristic-emerald-isle/src/shader.h \
   /opt/homebrew/include/GL/glew.h \
-  /opt/homebrew/include/GLFW/glfw3.h
+  /opt/homebrew/include/GLFW/glfw3.h \
+  /opt/homebrew/include/glm/common.hpp \
+  /opt/homebrew/include/glm/detail/qualifier.hpp \
+  /opt/homebrew/include/glm/detail/setup.hpp \
+  /opt/homebrew/include/glm/detail/type_float.hpp \
+  /opt/homebrew/include/glm/detail/type_mat2x2.hpp \
+  /opt/homebrew/include/glm/detail/type_mat2x3.hpp \
+  /opt/homebrew/include/glm/detail/type_mat2x4.hpp \
+  /opt/homebrew/include/glm/detail/type_mat3x2.hpp \
+  /opt/homebrew/include/glm/detail/type_mat3x3.hpp \
+  /opt/homebrew/include/glm/detail/type_mat3x4.hpp \
+  /opt/homebrew/include/glm/detail/type_mat4x2.hpp \
+  /opt/homebrew/include/glm/detail/type_mat4x3.hpp \
+  /opt/homebrew/include/glm/detail/type_mat4x4.hpp \
+  /opt/homebrew/include/glm/detail/type_quat.hpp \
+  /opt/homebrew/include/glm/detail/type_vec1.hpp \
+  /opt/homebrew/include/glm/detail/type_vec2.hpp \
+  /opt/homebrew/include/glm/detail/type_vec3.hpp \
+  /opt/homebrew/include/glm/detail/type_vec4.hpp \
+  /opt/homebrew/include/glm/exponential.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_geometric.hpp \
+  /opt/homebrew/include/glm/ext/scalar_constants.hpp \
+  /opt/homebrew/include/glm/ext/scalar_int_sized.hpp \
+  /opt/homebrew/include/glm/ext/scalar_uint_sized.hpp \
+  /opt/homebrew/include/glm/ext/vector_int1.hpp \
+  /opt/homebrew/include/glm/ext/vector_int2.hpp \
+  /opt/homebrew/include/glm/ext/vector_int3.hpp \
+  /opt/homebrew/include/glm/ext/vector_int4.hpp \
+  /opt/homebrew/include/glm/ext/vector_relational.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint1.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint2.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint3.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint4.hpp \
+  /opt/homebrew/include/glm/geometric.hpp \
+  /opt/homebrew/include/glm/gtc/constants.hpp \
+  /opt/homebrew/include/glm/matrix.hpp \
+  /opt/homebrew/include/glm/trigonometric.hpp \
+  /opt/homebrew/include/glm/vector_relational.hpp \
+  /opt/homebrew/include/glm/ext/matrix_clip_space.inl \
+  /opt/homebrew/include/glm/ext/matrix_double2x2.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double2x2_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double2x3.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double2x3_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double2x4.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double2x4_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double3x2.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double3x2_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double3x3.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double3x3_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double3x4.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double3x4_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double4x2.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double4x2_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double4x3.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double4x3_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double4x4.hpp \
+  /opt/homebrew/include/glm/ext/matrix_double4x4_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float2x2.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float2x2_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float2x3.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float2x3_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float2x4.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float2x4_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float3x2.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float3x2_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float3x3.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float3x3_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float3x4.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float3x4_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float4x2.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float4x2_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float4x3.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float4x3_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float4x4.hpp \
+  /opt/homebrew/include/glm/ext/matrix_float4x4_precision.hpp \
+  /opt/homebrew/include/glm/ext/matrix_projection.inl \
+  /opt/homebrew/include/glm/ext/matrix_transform.inl \
+  /opt/homebrew/include/glm/ext/quaternion_common.inl \
+  /opt/homebrew/include/glm/ext/quaternion_geometric.inl \
+  /opt/homebrew/include/glm/ext/quaternion_relational.inl \
+  /opt/homebrew/include/glm/ext/quaternion_transform.inl \
+  /opt/homebrew/include/glm/ext/quaternion_trigonometric.inl \
+  /opt/homebrew/include/glm/ext/scalar_constants.hpp \
+  /opt/homebrew/include/glm/ext/scalar_constants.inl \
+  /opt/homebrew/include/glm/ext/vector_bool2.hpp \
+  /opt/homebrew/include/glm/ext/vector_bool2_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_bool3.hpp \
+  /opt/homebrew/include/glm/ext/vector_bool3_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_bool4.hpp \
+  /opt/homebrew/include/glm/ext/vector_bool4_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_double2.hpp \
+  /opt/homebrew/include/glm/ext/vector_double2_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_double3.hpp \
+  /opt/homebrew/include/glm/ext/vector_double3_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_double4.hpp \
+  /opt/homebrew/include/glm/ext/vector_double4_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_float2.hpp \
+  /opt/homebrew/include/glm/ext/vector_float2_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_float3.hpp \
+  /opt/homebrew/include/glm/ext/vector_float3_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_float4.hpp \
+  /opt/homebrew/include/glm/ext/vector_float4_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_int2.hpp \
+  /opt/homebrew/include/glm/ext/vector_int2_sized.hpp \
+  /opt/homebrew/include/glm/ext/vector_int3.hpp \
+  /opt/homebrew/include/glm/ext/vector_int3_sized.hpp \
+  /opt/homebrew/include/glm/ext/vector_int4.hpp \
+  /opt/homebrew/include/glm/ext/vector_int4_sized.hpp \
+  /opt/homebrew/include/glm/ext/vector_relational.hpp \
+  /opt/homebrew/include/glm/ext/vector_relational.inl \
+  /opt/homebrew/include/glm/ext/vector_uint2.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint2_sized.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint3.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint3_sized.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint4.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint4_sized.hpp \
+  /opt/homebrew/include/glm/common.hpp \
+  /opt/homebrew/include/glm/common.hpp \
+  /opt/homebrew/include/glm/detail/type_mat3x3.hpp \
+  /opt/homebrew/include/glm/detail/type_mat4x4.hpp \
+  /opt/homebrew/include/glm/detail/type_vec3.hpp \
+  /opt/homebrew/include/glm/detail/type_vec4.hpp \
+  /opt/homebrew/include/glm/exponential.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_common.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_geometric.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_relational.hpp \
+  /opt/homebrew/include/glm/ext/vector_relational.hpp \
+  /opt/homebrew/include/glm/geometric.hpp \
+  /opt/homebrew/include/glm/gtc/constants.hpp \
+  /opt/homebrew/include/glm/gtc/matrix_transform.hpp \
+  /opt/homebrew/include/glm/matrix.hpp \
+  /opt/homebrew/include/glm/simd/platform.h \
+  /opt/homebrew/include/glm/trigonometric.hpp \
+  /opt/homebrew/include/glm/vector_relational.hpp \
+  /opt/homebrew/include/glm/detail/compute_vector_relational.hpp \
+  /opt/homebrew/include/glm/detail/_fixes.hpp \
+  /opt/homebrew/include/glm/detail/_vectorize.hpp \
+  /opt/homebrew/include/glm/detail/compute_common.hpp \
+  /opt/homebrew/include/glm/detail/compute_vector_relational.hpp \
+  /opt/homebrew/include/glm/detail/func_common.inl \
+  /opt/homebrew/include/glm/detail/func_exponential.inl \
+  /opt/homebrew/include/glm/detail/func_geometric.inl \
+  /opt/homebrew/include/glm/detail/func_integer.inl \
+  /opt/homebrew/include/glm/detail/func_matrix.inl \
+  /opt/homebrew/include/glm/detail/func_packing.inl \
+  /opt/homebrew/include/glm/detail/func_trigonometric.inl \
+  /opt/homebrew/include/glm/detail/func_vector_relational.inl \
+  /opt/homebrew/include/glm/detail/qualifier.hpp \
+  /opt/homebrew/include/glm/detail/setup.hpp \
+  /opt/homebrew/include/glm/detail/type_half.hpp \
+  /opt/homebrew/include/glm/detail/type_half.inl \
+  /opt/homebrew/include/glm/detail/type_mat2x2.inl \
+  /opt/homebrew/include/glm/detail/type_mat2x3.inl \
+  /opt/homebrew/include/glm/detail/type_mat2x4.inl \
+  /opt/homebrew/include/glm/detail/type_mat3x2.inl \
+  /opt/homebrew/include/glm/detail/type_mat3x3.inl \
+  /opt/homebrew/include/glm/detail/type_mat3x4.inl \
+  /opt/homebrew/include/glm/detail/type_mat4x2.inl \
+  /opt/homebrew/include/glm/detail/type_mat4x3.inl \
+  /opt/homebrew/include/glm/detail/type_mat4x4.inl \
+  /opt/homebrew/include/glm/detail/type_quat.inl \
+  /opt/homebrew/include/glm/detail/type_vec1.hpp \
+  /opt/homebrew/include/glm/detail/type_vec1.inl \
+  /opt/homebrew/include/glm/detail/type_vec2.hpp \
+  /opt/homebrew/include/glm/detail/type_vec2.inl \
+  /opt/homebrew/include/glm/detail/type_vec3.hpp \
+  /opt/homebrew/include/glm/detail/type_vec3.inl \
+  /opt/homebrew/include/glm/detail/type_vec4.hpp \
+  /opt/homebrew/include/glm/detail/type_vec4.inl \
+  /opt/homebrew/include/glm/exponential.hpp \
+  /opt/homebrew/include/glm/fwd.hpp \
+  /opt/homebrew/include/glm/geometric.hpp \
+  /opt/homebrew/include/glm/glm.hpp \
+  /opt/homebrew/include/glm/common.hpp \
+  /opt/homebrew/include/glm/detail/qualifier.hpp \
+  /opt/homebrew/include/glm/detail/setup.hpp \
+  /opt/homebrew/include/glm/detail/type_mat3x3.hpp \
+  /opt/homebrew/include/glm/detail/type_mat4x4.hpp \
+  /opt/homebrew/include/glm/detail/type_vec3.hpp \
+  /opt/homebrew/include/glm/detail/type_vec4.hpp \
+  /opt/homebrew/include/glm/exponential.hpp \
+  /opt/homebrew/include/glm/ext/matrix_clip_space.hpp \
+  /opt/homebrew/include/glm/ext/matrix_projection.hpp \
+  /opt/homebrew/include/glm/ext/matrix_transform.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_common.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_double.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_double_precision.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_float.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_float_precision.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_geometric.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_relational.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_transform.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_trigonometric.hpp \
+  /opt/homebrew/include/glm/ext/scalar_constants.hpp \
+  /opt/homebrew/include/glm/ext/vector_bool1.hpp \
+  /opt/homebrew/include/glm/ext/vector_bool1_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_double1.hpp \
+  /opt/homebrew/include/glm/ext/vector_double1_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_float1.hpp \
+  /opt/homebrew/include/glm/ext/vector_float1_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_int1.hpp \
+  /opt/homebrew/include/glm/ext/vector_int1_sized.hpp \
+  /opt/homebrew/include/glm/ext/vector_relational.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint1.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint1_sized.hpp \
+  /opt/homebrew/include/glm/geometric.hpp \
+  /opt/homebrew/include/glm/gtc/constants.hpp \
+  /opt/homebrew/include/glm/gtc/matrix_transform.hpp \
+  /opt/homebrew/include/glm/gtc/quaternion.hpp \
+  /opt/homebrew/include/glm/gtc/vec1.hpp \
+  /opt/homebrew/include/glm/mat2x2.hpp \
+  /opt/homebrew/include/glm/mat2x3.hpp \
+  /opt/homebrew/include/glm/mat2x4.hpp \
+  /opt/homebrew/include/glm/mat3x2.hpp \
+  /opt/homebrew/include/glm/mat3x3.hpp \
+  /opt/homebrew/include/glm/mat3x4.hpp \
+  /opt/homebrew/include/glm/mat4x2.hpp \
+  /opt/homebrew/include/glm/mat4x3.hpp \
+  /opt/homebrew/include/glm/mat4x4.hpp \
+  /opt/homebrew/include/glm/matrix.hpp \
+  /opt/homebrew/include/glm/trigonometric.hpp \
+  /opt/homebrew/include/glm/vec2.hpp \
+  /opt/homebrew/include/glm/vec3.hpp \
+  /opt/homebrew/include/glm/vec4.hpp \
+  /opt/homebrew/include/glm/vector_relational.hpp \
+  /opt/homebrew/include/glm/gtc/constants.inl \
+  /opt/homebrew/include/glm/gtc/epsilon.hpp \
+  /opt/homebrew/include/glm/gtc/epsilon.inl \
+  /opt/homebrew/include/glm/gtc/matrix_transform.hpp \
+  /opt/homebrew/include/glm/gtc/matrix_transform.inl \
+  /opt/homebrew/include/glm/gtc/quaternion.inl \
+  /opt/homebrew/include/glm/gtc/type_ptr.hpp \
+  /opt/homebrew/include/glm/gtc/type_ptr.inl \
+  /opt/homebrew/include/glm/integer.hpp \
+  /opt/homebrew/include/glm/mat2x2.hpp \
+  /opt/homebrew/include/glm/mat2x3.hpp \
+  /opt/homebrew/include/glm/mat2x4.hpp \
+  /opt/homebrew/include/glm/mat3x2.hpp \
+  /opt/homebrew/include/glm/mat3x3.hpp \
+  /opt/homebrew/include/glm/mat3x4.hpp \
+  /opt/homebrew/include/glm/mat4x2.hpp \
+  /opt/homebrew/include/glm/mat4x3.hpp \
+  /opt/homebrew/include/glm/mat4x4.hpp \
+  /opt/homebrew/include/glm/matrix.hpp \
+  /opt/homebrew/include/glm/packing.hpp \
+  /opt/homebrew/include/glm/trigonometric.hpp \
+  /opt/homebrew/include/glm/vec2.hpp \
+  /opt/homebrew/include/glm/vec3.hpp \
+  /opt/homebrew/include/glm/vec4.hpp \
+  /opt/homebrew/include/glm/vector_relational.hpp
 
 CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuristic-emerald-isle/src/shader.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework/Headers/OpenGLAvailability.h \
@@ -1635,8 +1890,6 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/operations.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/file_type.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/file_time_type.h:
@@ -1649,17 +1902,211 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/directory_entry.h:
 
+/opt/homebrew/include/glm/integer.hpp:
+
+/opt/homebrew/include/glm/gtc/type_ptr.inl:
+
+/opt/homebrew/include/glm/gtc/type_ptr.hpp:
+
+/opt/homebrew/include/glm/gtc/quaternion.inl:
+
+/opt/homebrew/include/glm/gtc/matrix_transform.inl:
+
+/opt/homebrew/include/glm/gtc/constants.inl:
+
+/opt/homebrew/include/glm/vec2.hpp:
+
+/opt/homebrew/include/glm/mat4x3.hpp:
+
+/opt/homebrew/include/glm/mat3x3.hpp:
+
+/opt/homebrew/include/glm/mat2x3.hpp:
+
+/opt/homebrew/include/glm/mat2x2.hpp:
+
+/opt/homebrew/include/glm/gtc/quaternion.hpp:
+
+/opt/homebrew/include/glm/ext/vector_uint1_sized.hpp:
+
+/opt/homebrew/include/glm/ext/vector_int1_sized.hpp:
+
+/opt/homebrew/include/glm/ext/vector_float1_precision.hpp:
+
+/opt/homebrew/include/glm/ext/vector_bool1_precision.hpp:
+
+/opt/homebrew/include/glm/ext/vector_bool1.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_trigonometric.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_float_precision.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_double_precision.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_double.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_transform.hpp:
+
+/opt/homebrew/include/glm/glm.hpp:
+
+/opt/homebrew/include/glm/fwd.hpp:
+
+/opt/homebrew/include/glm/detail/type_vec3.inl:
+
+/opt/homebrew/include/glm/detail/type_vec2.inl:
+
+/opt/homebrew/include/glm/ext/matrix_clip_space.hpp:
+
+/opt/homebrew/include/glm/detail/type_quat.inl:
+
+/opt/homebrew/include/glm/detail/type_mat3x4.inl:
+
+/opt/homebrew/include/glm/detail/type_mat3x2.inl:
+
+/opt/homebrew/include/glm/detail/type_mat2x4.inl:
+
+/opt/homebrew/include/glm/detail/type_mat2x3.inl:
+
+/opt/homebrew/include/glm/detail/type_mat2x2.inl:
+
+/opt/homebrew/include/glm/detail/type_half.hpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h:
+
+/opt/homebrew/include/glm/detail/func_packing.inl:
+
+/opt/homebrew/include/glm/ext/quaternion_transform.hpp:
+
+/opt/homebrew/include/glm/detail/func_matrix.inl:
+
+/opt/homebrew/include/glm/detail/func_integer.inl:
+
+/opt/homebrew/include/glm/detail/func_geometric.inl:
+
+/opt/homebrew/include/glm/detail/func_exponential.inl:
+
+/opt/homebrew/include/glm/detail/compute_common.hpp:
+
+/opt/homebrew/include/glm/detail/_vectorize.hpp:
+
+/opt/homebrew/include/glm/detail/_fixes.hpp:
+
+/opt/homebrew/include/glm/detail/compute_vector_relational.hpp:
+
+/opt/homebrew/include/glm/simd/platform.h:
+
+/opt/homebrew/include/glm/ext/quaternion_relational.hpp:
+
+/opt/homebrew/include/glm/ext/vector_uint3_sized.hpp:
+
+/opt/homebrew/include/glm/vec4.hpp:
+
+/opt/homebrew/include/glm/detail/func_vector_relational.inl:
+
+/opt/homebrew/include/glm/ext/vector_relational.inl:
+
+/opt/homebrew/include/glm/ext/vector_int3_sized.hpp:
+
+/opt/homebrew/include/glm/ext/vector_float4_precision.hpp:
+
+/opt/homebrew/include/glm/ext/vector_float3.hpp:
+
+/opt/homebrew/include/glm/ext/vector_double4_precision.hpp:
+
+/opt/homebrew/include/glm/ext/vector_double4.hpp:
+
+/opt/homebrew/include/glm/ext/vector_double3.hpp:
+
+/opt/homebrew/include/glm/ext/vector_double3_precision.hpp:
+
+/opt/homebrew/include/glm/ext/vector_double2_precision.hpp:
+
+/opt/homebrew/include/glm/ext/vector_double2.hpp:
+
+/opt/homebrew/include/glm/ext/vector_bool4_precision.hpp:
+
+/opt/homebrew/include/glm/ext/vector_bool3.hpp:
+
+/opt/homebrew/include/glm/ext/vector_bool2_precision.hpp:
+
+/opt/homebrew/include/glm/ext/scalar_constants.inl:
+
+/opt/homebrew/include/glm/ext/quaternion_transform.inl:
+
+/opt/homebrew/include/glm/ext/quaternion_geometric.inl:
+
+/opt/homebrew/include/glm/ext/matrix_projection.inl:
+
+/opt/homebrew/include/glm/ext/matrix_float4x4_precision.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_float3x3.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_float3x2.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_float2x3_precision.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_float2x2_precision.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_float2x2.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_double4x4_precision.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_double3x4.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_double3x3_precision.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_double3x3.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_double3x2_precision.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_double3x2.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_double2x3_precision.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_double2x3.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_double2x2_precision.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_float.hpp:
+
+/opt/homebrew/include/glm/ext/matrix_double2x2.hpp:
+
+/opt/homebrew/include/glm/trigonometric.hpp:
+
+/opt/homebrew/include/glm/matrix.hpp:
+
+/opt/homebrew/include/glm/ext/vector_relational.hpp:
+
+/opt/homebrew/include/glm/ext/vector_int4.hpp:
+
+/opt/homebrew/include/glm/ext/vector_int3.hpp:
+
+/opt/homebrew/include/glm/ext/vector_int2.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_geometric.hpp:
+
+/opt/homebrew/include/glm/detail/type_vec4.hpp:
+
+/opt/homebrew/include/glm/detail/type_vec1.hpp:
+
+/opt/homebrew/include/glm/detail/type_mat4x4.hpp:
+
+/opt/homebrew/include/glm/detail/type_mat4x2.hpp:
+
+/opt/homebrew/include/glm/detail/type_mat3x2.hpp:
+
+/opt/homebrew/include/glm/detail/type_mat2x3.hpp:
+
+/opt/homebrew/include/glm/detail/type_float.hpp:
+
+/opt/homebrew/include/glm/detail/setup.hpp:
+
+/opt/homebrew/include/glm/common.hpp:
+
 /opt/homebrew/include/GLFW/glfw3.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/equal_range.h:
+/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stddef.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_inplace_merge.h:
-
-/Users/varunanand/futuristic-emerald-isle/src/shader.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_move.h:
-
-/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/limits.h:
+/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/float.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/iostream:
 
@@ -1670,10 +2117,6 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__compare/compare_three_way.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/xlocale/_ctype.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/comp_ref_type.h:
-
-/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdarg.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/xlocale.h:
 
@@ -1694,6 +2137,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/mach/arm/_structs.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/signal.h:
+
+/opt/homebrew/include/glm/detail/type_mat4x3.inl:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/concepts.h:
 
@@ -1775,6 +2220,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_clock_t.h:
 
+/opt/homebrew/include/glm/gtc/matrix_transform.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_caddr_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_blksize_t.h:
@@ -1792,6 +2239,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_posix_availability.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_endian.h:
+
+/opt/homebrew/include/glm/ext/matrix_clip_space.inl:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_pthread/_pthread_t.h:
 
@@ -1821,6 +2270,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/machine/limits.h:
 
+/opt/homebrew/include/glm/ext/matrix_float3x4.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/rank.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/machine/endian.h:
@@ -1839,6 +2290,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/type_traits:
 
+/opt/homebrew/include/glm/ext/matrix_projection.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/tuple:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_fd_zero.h:
@@ -1846,6 +2299,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/system_error:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/string.h:
+
+/opt/homebrew/include/glm/ext/scalar_int_sized.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__ranges/access.h:
 
@@ -1857,6 +2312,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/optional:
 
+/opt/homebrew/include/glm/ext/vector_uint2_sized.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/unordered_map:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cerrno:
@@ -1866,6 +2323,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/locale.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/limits.h:
+
+/opt/homebrew/include/glm/ext/matrix_float2x4.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/resource.h:
 
@@ -1888,6 +2347,10 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cstddef:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_ct_rune_t.h:
+
+/opt/homebrew/include/glm/ext/matrix_float4x3_precision.hpp:
+
+/opt/homebrew/include/glm/ext/vector_int1.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h:
 
@@ -1915,9 +2378,13 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__utility/piecewise_construct.h:
 
+/opt/homebrew/include/glm/ext/vector_int2_sized.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__utility/move.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__utility/in_place.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cassert:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__concepts/assignable.h:
 
@@ -1979,6 +2446,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h:
 
+/opt/homebrew/include/glm/detail/type_vec2.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/unique_ptr.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/lazy.h:
@@ -1988,6 +2457,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/swap_ranges.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_valid_expansion.h:
+
+/opt/homebrew/include/glm/vector_relational.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/_types.h:
 
@@ -2017,9 +2488,13 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_wchar_t.h:
 
+/opt/homebrew/include/glm/ext/vector_float3_precision.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/machine/_mcontext.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_specialization.h:
+
+/opt/homebrew/include/glm/detail/type_half.inl:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/nat.h:
 
@@ -2064,6 +2539,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_is_partitioned.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_reference.h:
+
+/opt/homebrew/include/glm/detail/func_common.inl:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_primary_template.h:
 
@@ -2111,6 +2588,12 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_constructible.h:
 
+/opt/homebrew/include/glm/mat4x2.hpp:
+
+/opt/homebrew/include/glm/detail/type_mat4x4.inl:
+
+/opt/homebrew/include/glm/ext/matrix_float4x4.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_const.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_compound.h:
@@ -2145,10 +2628,6 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/has_virtual_destructor.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/sample.h:
-
-/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdint.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/has_unique_object_representation.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/iter_swap.h:
@@ -2161,9 +2640,13 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_copy_constructible.h:
 
+/opt/homebrew/include/glm/ext/matrix_double4x3_precision.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/disjunction.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/remove_reference.h:
+
+/opt/homebrew/include/glm/ext/matrix_float2x4_precision.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/dependent_type.h:
 
@@ -2201,6 +2684,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/algorithm:
 
+/opt/homebrew/include/glm/ext/quaternion_common.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/add_volatile.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/string:
@@ -2219,6 +2704,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__thread/timed_backoff_policy.h:
 
+/opt/homebrew/include/glm/ext/matrix_float3x2_precision.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_aggregate.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__thread/poll_with_backoff.h:
@@ -2226,6 +2713,10 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/libkern/arm/OSByteOrder.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/u8path.h:
+
+/opt/homebrew/include/glm/detail/type_mat4x3.hpp:
+
+/opt/homebrew/include/glm/detail/type_mat3x3.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__string/char_traits.h:
 
@@ -2249,6 +2740,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/uniform_random_bit_generator.h:
 
+/opt/homebrew/include/glm/gtc/epsilon.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__node_handle:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/count.h:
@@ -2269,6 +2762,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/streambuf:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/float.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_equal.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/uninitialized_algorithms.h:
@@ -2278,8 +2773,6 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/allocator_destructor.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/temporary_buffer.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/swap_allocator.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/ranges_uninitialized_algorithms.h:
 
@@ -2320,6 +2813,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/align.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/make_signed.h:
+
+/opt/homebrew/include/glm/detail/type_mat3x3.inl:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/addressof.h:
 
@@ -2363,6 +2858,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__functional/compose.h:
 
+/opt/homebrew/include/glm/ext/vector_float4.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/is_valid.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_sigaltstack.h:
@@ -2391,15 +2888,21 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/next.h:
 
+/opt/homebrew/include/glm/ext/matrix_double4x2.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/istream_iterator.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/empty.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/distance.h:
 
+/opt/homebrew/include/glm/gtc/epsilon.inl:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/machine/types.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ratio:
+
+/opt/homebrew/include/glm/detail/type_mat3x4.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/is_heap.h:
 
@@ -2422,6 +2925,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__hash_table:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__ranges/size.h:
+
+/opt/homebrew/include/glm/mat3x4.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__fwd/tuple.h:
 
@@ -2475,6 +2980,10 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tuple_dir/tuple_size.h:
 
+/opt/homebrew/include/glm/ext/vector_bool4.hpp:
+
+/opt/homebrew/include/glm/detail/qualifier.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/arm/arch.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__fwd/get.h:
@@ -2484,6 +2993,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_always_bitcastable.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/_types/_wctype_t.h:
+
+/opt/homebrew/include/glm/ext/quaternion_common.inl:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/set_symmetric_difference.h:
 
@@ -2532,6 +3043,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__concepts/semiregular.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__concepts/regular.h:
+
+/opt/homebrew/include/glm/ext/matrix_double4x4.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__concepts/predicate.h:
 
@@ -2587,6 +3100,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__compare/ordering.h:
 
+/opt/homebrew/include/glm/gtc/constants.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/nth_element.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/advance.h:
@@ -2599,17 +3114,13 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__compare/is_eq.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_pthread/_pthread_attr_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__functional/default_searcher.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/allocator_traits.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__compare/compare_three_way_result.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_stable_partition.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/array:
+
+/opt/homebrew/include/glm/geometric.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_trivially_constructible.h:
 
@@ -2683,15 +3194,23 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/add_pointer.h:
 
+/opt/homebrew/include/glm/ext/scalar_uint_sized.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_find_end.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__concepts/different_from.h:
+
+/opt/homebrew/include/glm/detail/type_vec4.inl:
+
+/opt/homebrew/include/glm/detail/type_mat2x2.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/construct_at.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__bit/rotate.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/extent.h:
+
+/opt/homebrew/include/glm/detail/type_mat4x2.inl:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/wctype.h:
 
@@ -2711,6 +3230,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__bit/blsr.h:
 
+/opt/homebrew/include/glm/ext/vector_uint1.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/_types/_wctrans_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_timeval.h:
@@ -2725,6 +3246,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/transform.h:
 
+/opt/homebrew/include/glm/ext/matrix_double2x4.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/conditional.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/includes.h:
@@ -2736,6 +3259,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/unwrap_range.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/insert_iterator.h:
+
+/opt/homebrew/include/glm/ext/vector_int4_sized.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/sort_heap.h:
 
@@ -2757,6 +3282,10 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_stable_sort.h:
 
+/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdint.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/sample.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__concepts/boolean_testable.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/functional:
@@ -2773,15 +3302,17 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/reverse_copy.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/assert.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/type_identity.h:
+
+/opt/homebrew/include/glm/ext/vector_bool2.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/bitset:
 
+/opt/homebrew/include/glm/ext/vector_double1_precision.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/replace_if.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/replace_copy_if.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__format/format_parse_context.h:
 
@@ -2800,6 +3331,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/make_projected.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/in_out_result.h:
+
+/opt/homebrew/include/glm/ext/matrix_float4x2_precision.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__functional/mem_fn.h:
 
@@ -2829,7 +3362,11 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_set_intersection.h:
 
+/opt/homebrew/include/glm/ext/matrix_float4x3.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_search_n.h:
+
+/opt/homebrew/include/glm/ext/vector_float2.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/clamp.h:
 
@@ -2838,6 +3375,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_for_each_n.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_trivially_destructible.h:
+
+/opt/homebrew/include/glm/ext/matrix_transform.inl:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/uniform_int_distribution.h:
 
@@ -2869,7 +3408,11 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/none_of.h:
 
+/opt/homebrew/include/glm/ext/quaternion_relational.inl:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_replace_if.h:
+
+/opt/homebrew/include/glm/detail/type_quat.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_trivially_assignable.h:
 
@@ -2878,6 +3421,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/remove_cvref.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/merge.h:
+
+/opt/homebrew/include/glm/ext/vector_double1.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/min.h:
 
@@ -2903,6 +3448,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_partition.h:
 
+/opt/homebrew/include/glm/ext/matrix_float3x3_precision.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/any_of.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_copy.h:
@@ -2920,6 +3467,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cstring:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_nth_element.h:
+
+/opt/homebrew/include/glm/detail/type_vec3.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/unreachable_sentinel.h:
 
@@ -2941,21 +3490,15 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/move_backward.h:
 
+/opt/homebrew/include/glm/ext/matrix_float2x3.hpp:
+
+/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/limits.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_move.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/xlocale/_stdlib.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_minmax.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__concepts/relation.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_copy_backward.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_partial_sort.h:
-
-/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stddef.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cwctype:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_min.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/_wctype.h:
 
@@ -2979,6 +3522,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_max_element.h:
 
+/opt/homebrew/include/glm/exponential.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/prev.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/is_heap_until.h:
@@ -2989,6 +3534,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/allocator_arg_t.h:
 
+/opt/homebrew/include/glm/mat2x4.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__bit/endian.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/remove_const_ref.h:
@@ -2996,6 +3543,12 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__undef_macros:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/arm/signal.h:
+
+/Users/varunanand/futuristic-emerald-isle/src/shader.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/equal_range.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_inplace_merge.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__debug:
 
@@ -3021,6 +3574,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/pop_heap.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cfloat:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_find.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__config_site:
@@ -3033,9 +3588,17 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__bit/has_single_bit.h:
 
+/opt/homebrew/include/glm/detail/func_trigonometric.inl:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_equal_range.h:
 
+/opt/homebrew/include/glm/ext/vector_float1.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_nothrow_copy_constructible.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_partial_sort.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_copy_backward.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_clamp.h:
 
@@ -3047,9 +3610,13 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/__wctype.h:
 
+/opt/homebrew/include/glm/ext/vector_float2_precision.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_is_permutation.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/iterator:
+
+/opt/homebrew/include/glm/ext/vector_uint3.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_pod.h:
 
@@ -3057,9 +3624,15 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/move.h:
 
+/opt/homebrew/include/glm/mat3x2.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/comp.h:
 
+/opt/homebrew/include/glm/ext/matrix_double3x4_precision.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/partition.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/partial_sort.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/copy_cvref.h:
 
@@ -3067,9 +3640,13 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_dev_t.h:
 
+/opt/homebrew/include/glm/detail/type_mat2x4.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/minmax_element.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__debug_utils/randomize_range.h:
+
+/opt/homebrew/include/glm/gtc/vec1.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/min_max_result.h:
 
@@ -3078,6 +3655,10 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_swap_ranges.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_push_heap.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/replace_copy_if.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/_types/_uintmax_t.h:
 
@@ -3101,6 +3682,10 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_is_sorted_until.h:
 
+/opt/homebrew/include/glm/ext/vector_bool3_precision.hpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/swap_allocator.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/common_type.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cctype:
@@ -3109,6 +3694,10 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/in_fun_result.h:
 
+/opt/homebrew/include/glm/vec3.hpp:
+
+/opt/homebrew/include/glm/ext/vector_uint4_sized.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_make_heap.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/bit:
@@ -3116,6 +3705,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__functional/reference_wrapper.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_iterator_concept.h:
+
+/opt/homebrew/include/glm/detail/type_vec1.inl:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/remove_volatile.h:
 
@@ -3137,6 +3728,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/find_first_of.h:
 
+/opt/homebrew/include/glm/mat4x4.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_is_heap.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__bit/bit_ceil.h:
@@ -3151,6 +3744,12 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/istream:
 
+/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdarg.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/comp_ref_type.h:
+
+/opt/homebrew/include/glm/ext/scalar_constants.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__bit/popcount.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/fill.h:
@@ -3159,17 +3758,9 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/stable_sort.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/equal.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__concepts/relation.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_minmax_element.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/remove_const.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/voidify.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/count_if.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/partial_sort.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/find_end.h:
 
@@ -3177,7 +3768,11 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__config:
 
+/opt/homebrew/include/glm/ext/matrix_double4x2_precision.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/copy_if.h:
+
+/opt/homebrew/include/glm/ext/matrix_double2x4_precision.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/copy_backward.h:
 
@@ -3189,11 +3784,19 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/half_positive.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/voidify.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/count_if.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/remove_const.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stdexcept:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/in_in_result.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_swappable.h:
+
+/opt/homebrew/include/glm/ext/quaternion_trigonometric.inl:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/is_sorted.h:
 
@@ -3207,6 +3810,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/add_lvalue_reference.h:
 
+/opt/homebrew/include/glm/ext/matrix_float3x4_precision.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/counted_iterator.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/alloca.h:
@@ -3219,6 +3824,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/uniform_random_bit_generator_adaptor.h:
 
+/opt/homebrew/include/glm/ext/matrix_float4x2.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_reverse_copy.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stddef.h:
@@ -3226,6 +3833,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Users/varunanand/futuristic-emerald-isle/src/main.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/_types/_nl_item.h:
+
+/opt/homebrew/include/glm/ext/vector_uint2.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__concepts/common_with.h:
 
@@ -3241,9 +3850,21 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_merge.h:
 
+/opt/homebrew/include/glm/ext/vector_uint4.hpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/allocator_traits.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/sys/_pthread/_pthread_attr_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__functional/default_searcher.h:
+
+/opt/homebrew/include/glm/packing.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/lexicographical_compare.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/iomanip:
+
+/opt/homebrew/include/glm/ext/matrix_double4x3.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__functional/weak_result_type.h:
 
@@ -3253,6 +3874,10 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/for_each.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cwctype:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_min.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/xlocale/_wctype.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stdlib.h:
@@ -3260,3 +3885,7 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/make_const_lvalue_ref.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/adjacent_find.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/float.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/equal.h:
