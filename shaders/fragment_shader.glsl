@@ -6,7 +6,8 @@ in vec3 Normal;
 in vec2 TexCoords; // From Vertex Shader
 
 
-uniform sampler2D texture1;
+uniform sampler2D texture1; // For container
+uniform sampler2D texture2; // For ground
 
 
 uniform vec3 lightPos; 
@@ -22,19 +23,22 @@ uniform vec3 objectColor;
 uniform vec3 fogColor;
 uniform float fogDensity;
 
+
+uniform bool isGround;
+
 void main()
 {
-    
+
     float ambientStrength = 0.3;
     vec3 ambient = ambientStrength * lightColor;
-  	
-    
+    	
+
     vec3 norm = normalize(Normal);
     vec3 lightDir = normalize(lightPos - FragPos);
     float diff = max(dot(norm, lightDir), 0.0);
     vec3 diffuse = diff * lightColor;
     
-    
+
     float specularStrength = 1.0;
     float shininess = 64.0;
     vec3 viewDir = normalize(viewPos - FragPos);
@@ -42,10 +46,14 @@ void main()
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
     vec3 specular = specularStrength * spec * lightColor;  
     
+
+    vec3 texColor;
+    if (isGround)
+        texColor = texture(texture2, TexCoords).rgb; 
+    else
+        texColor = texture(texture1, TexCoords).rgb; 
+
     
-    vec3 texColor = texture(texture1, TexCoords).rgb;
-    
-    // Combine all lighting components with texture and object color
     vec3 result = (ambient + diffuse + specular) * texColor * objectColor;
     
     

@@ -213,6 +213,7 @@ int main()
 
     ourShader.use();
     glUniform1i(glGetUniformLocation(ourShader.Program, "texture1"), 0);
+    glUniform1i(glGetUniformLocation(ourShader.Program, "texture2"), 1);
 
     GLint modelLoc = glGetUniformLocation(ourShader.Program, "model");
     GLint viewLoc  = glGetUniformLocation(ourShader.Program, "view");
@@ -223,11 +224,13 @@ int main()
     GLint objectColorLoc = glGetUniformLocation(ourShader.Program, "objectColor");
     GLint fogColorLoc = glGetUniformLocation(ourShader.Program, "fogColor");
     GLint fogDensityLoc = glGetUniformLocation(ourShader.Program, "fogDensity");
+    GLint isGroundLoc = glGetUniformLocation(ourShader.Program, "isGround");
 
     if(modelLoc == -1 || viewLoc == -1 || projLoc == -1 ||
        lightPosLoc == -1 || lightColorLoc == -1 ||
        viewPosLoc == -1 || objectColorLoc == -1 ||
-       fogColorLoc == -1 || fogDensityLoc == -1)
+       fogColorLoc == -1 || fogDensityLoc == -1 ||
+       isGroundLoc == -1)
     {
         std::cerr << "Error: One or more uniform locations not found.\n";
     }
@@ -334,13 +337,6 @@ int main()
 
     std::cout << "Ground VAO and VBO set up.\n";
 
-
-    ourShader.use();
-    glUniform3fv(objectColorLoc, 1, glm::value_ptr(objectColor));
-    glUniform3fv(fogColorLoc, 1, glm::value_ptr(fogColor));
-    glUniform1f(fogDensityLoc, fogDensity);
-
-
     const int TILE_COUNT_X = 5;
     const int TILE_COUNT_Z = 5;
     const float TILE_SIZE = 10.0f;
@@ -357,6 +353,10 @@ int main()
 
     std::cout << "Initialized " << groundTiles.size() << " ground tiles for infinite scene.\n";
 
+    ourShader.use();
+    glUniform3fv(objectColorLoc, 1, glm::value_ptr(objectColor));
+    glUniform3fv(fogColorLoc, 1, glm::value_ptr(fogColor));
+    glUniform1f(fogDensityLoc, fogDensity);
 
     std::cout << "Entering main loop.\n";
     while (!glfwWindowShouldClose(window))
@@ -393,17 +393,22 @@ int main()
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture1);
 
+        glUniform1i(isGroundLoc, GL_FALSE);
+
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
+
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, groundTexture);
+
+        glUniform1i(isGroundLoc, GL_TRUE);
 
         for(const auto& tilePos : groundTiles)
         {
             glm::mat4 groundModel = glm::mat4(1.0f);
             groundModel = glm::translate(groundModel, tilePos);
             glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(groundModel));
-
-            glBindTexture(GL_TEXTURE_2D, groundTexture);
 
             glBindVertexArray(groundVAO);
             glDrawArrays(GL_TRIANGLES, 0, 6);
