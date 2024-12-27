@@ -803,6 +803,7 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o: /Users/varunanand/futuristi
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stdint.h \
+  /Users/varunanand/futuristic-emerald-isle/src/camera.h \
   /Users/varunanand/futuristic-emerald-isle/src/shader.h \
   /opt/homebrew/include/GL/glew.h \
   /opt/homebrew/include/GLFW/glfw3.h \
@@ -2103,6 +2104,8 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/shader.cpp.o: /Users/varunanand/futuris
 /opt/homebrew/include/glm/common.hpp:
 
 /opt/homebrew/include/GLFW/glfw3.h:
+
+/Users/varunanand/futuristic-emerald-isle/src/camera.h:
 
 /Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include/stddef.h:
 
