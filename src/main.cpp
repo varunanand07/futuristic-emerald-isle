@@ -6,6 +6,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include <iostream>
+#include <vector>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -339,8 +340,25 @@ int main()
     glUniform3fv(fogColorLoc, 1, glm::value_ptr(fogColor));
     glUniform1f(fogDensityLoc, fogDensity);
 
-    std::cout << "Entering main loop.\n";
 
+    const int TILE_COUNT_X = 5;
+    const int TILE_COUNT_Z = 5;
+    const float TILE_SIZE = 10.0f;
+
+    std::vector<glm::vec3> groundTiles;
+
+    for(int x = -TILE_COUNT_X; x <= TILE_COUNT_X; ++x)
+    {
+        for(int z = -TILE_COUNT_Z; z <= TILE_COUNT_Z; ++z)
+        {
+            groundTiles.emplace_back(glm::vec3(x * TILE_SIZE, -0.5f, z * TILE_SIZE));
+        }
+    }
+
+    std::cout << "Initialized " << groundTiles.size() << " ground tiles for infinite scene.\n";
+
+
+    std::cout << "Entering main loop.\n";
     while (!glfwWindowShouldClose(window))
     {
         float currentFrame = glfwGetTime();
@@ -379,14 +397,18 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
 
-        glBindTexture(GL_TEXTURE_2D, groundTexture);
+        for(const auto& tilePos : groundTiles)
+        {
+            glm::mat4 groundModel = glm::mat4(1.0f);
+            groundModel = glm::translate(groundModel, tilePos);
+            glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(groundModel));
 
-        glm::mat4 groundModel = glm::mat4(1.0f);
-        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(groundModel));
+            glBindTexture(GL_TEXTURE_2D, groundTexture);
 
-        glBindVertexArray(groundVAO);
-        glDrawArrays(GL_TRIANGLES, 0, 6);
-        glBindVertexArray(0);
+            glBindVertexArray(groundVAO);
+            glDrawArrays(GL_TRIANGLES, 0, 6);
+            glBindVertexArray(0);
+        }
 
         lightShader.use();
         glm::mat4 lightModel = glm::mat4(1.0f);
@@ -402,6 +424,32 @@ int main()
 
         glfwSwapBuffers(window);
         glfwPollEvents();
+
+        float maxDistance = TILE_COUNT_X * TILE_SIZE;
+
+        for(auto& tilePos : groundTiles)
+        {
+            float distanceX = tilePos.x - camera.Position.x;
+            float distanceZ = tilePos.z - camera.Position.z;
+
+            if(distanceX < -maxDistance)
+            {
+                tilePos.x += TILE_COUNT_X * TILE_SIZE * 2.0f;
+            }
+            else if(distanceX > maxDistance)
+            {
+                tilePos.x -= TILE_COUNT_X * TILE_SIZE * 2.0f;
+            }
+
+            if(distanceZ < -maxDistance)
+            {
+                tilePos.z += TILE_COUNT_Z * TILE_SIZE * 2.0f;
+            }
+            else if(distanceZ > maxDistance)
+            {
+                tilePos.z -= TILE_COUNT_Z * TILE_SIZE * 2.0f;
+            }
+        }
     }
 
     std::cout << "Exiting main loop.\n";
