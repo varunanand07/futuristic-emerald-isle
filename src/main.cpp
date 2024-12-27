@@ -11,7 +11,9 @@
 #include "stb_image.h"
 
 #include <iostream>
+#include <vector>
 #include <cmath>
+#include <random>
 
 const GLuint WIDTH = 800, HEIGHT = 600;
 
@@ -101,7 +103,7 @@ int main()
 
     int texWidth, texHeight, texChannels;
     stbi_set_flip_vertically_on_load(true);
-    unsigned char *image = stbi_load("../textures/model_texture.jpg", &texWidth, &texHeight, &texChannels, 0);
+    unsigned char *image = stbi_load("../textures/glass.jpg", &texWidth, &texHeight, &texChannels, 0);
     if (image)
     {
         GLenum format;
@@ -288,40 +290,81 @@ int main()
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
+    int buildingWidth, buildingHeight, buildingNrChannels;
     stbi_set_flip_vertically_on_load(true);
-    unsigned char *buildingImage = stbi_load("../textures/ground_texture.jpg", &groundWidth, &groundHeight, &groundNrChannels, 0);
+    unsigned char *buildingImage = stbi_load("../textures/glass.jpg", &buildingWidth, &buildingHeight, &buildingNrChannels, 0);
     if (buildingImage)
     {
         GLenum format;
-        if (groundNrChannels == 1)
+        if (buildingNrChannels == 1)
             format = GL_RED;
-        else if (groundNrChannels == 3)
+        else if (buildingNrChannels == 3)
             format = GL_RGB;
-        else if (groundNrChannels == 4)
+        else if (buildingNrChannels == 4)
             format = GL_RGBA;
 
-        glTexImage2D(GL_TEXTURE_2D, 0, format, groundWidth, groundHeight, 0, format, GL_UNSIGNED_BYTE, buildingImage);
+        glTexImage2D(GL_TEXTURE_2D, 0, format, buildingWidth, buildingHeight, 0, format, GL_UNSIGNED_BYTE, buildingImage);
         glGenerateMipmap(GL_TEXTURE_2D);
         std::cout << "Building texture loaded successfully.\n";
     }
     else
     {
         std::cerr << "Failed to load building texture.\n";
+        exit(-1);
     }
     stbi_image_free(buildingImage);
 
     ourShader.use();
-    glUniform1i(glGetUniformLocation(ourShader.Program, "texture1"), 0);
     glUniform1i(glGetUniformLocation(ourShader.Program, "texture3"), 2);
-
 
     ourShader.use();
     glUniform3fv(objectColorLoc, 1, glm::value_ptr(objectColor));
     glUniform3fv(fogColorLoc, 1, glm::value_ptr(fogColor));
     glUniform1f(fogDensityLoc, fogDensity);
+
+    
+    buildingPositions.clear();
+
+    const int numberOfBuildings = 50;
+
+    const float rangeX = 50.0f;
+    const float rangeZ = 50.0f;
+
+    const float minDistance = 5.0f;
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> disX(-rangeX, rangeX);
+    std::uniform_real_distribution<> disZ(-rangeZ, rangeZ);
+
+    for(int i = 0; i < numberOfBuildings; ++i)
+    {
+        bool validPosition = false;
+        glm::vec3 pos;
+        while(!validPosition)
+        {
+            pos = glm::vec3(disX(gen), 0.0f, disZ(gen));
+
+            validPosition = true;
+            for(auto &existingPos : buildingPositions)
+            {
+                float distance = glm::distance(pos, existingPos);
+                if(distance < minDistance)
+                {
+                    validPosition = false;
+                    break;
+                }
+            }
+        }
+        buildingPositions.push_back(pos);
+    }
+
+    std::cout << "Generated " << buildingPositions.size() << " random building positions.\n";
+
 
     std::cout << "Entering main loop.\n";
     while (!glfwWindowShouldClose(window))
@@ -348,6 +391,7 @@ int main()
         glUniform3fv(lightColorLoc, 1, glm::value_ptr(lightColor));
         glUniform3fv(viewPosLoc, 1, glm::value_ptr(camera.Position));
 
+
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, modelTexture);
 
@@ -363,6 +407,7 @@ int main()
         myModel.Draw(ourShader);
 
 
+
         glActiveTexture(GL_TEXTURE2);
         glBindTexture(GL_TEXTURE_2D, buildingTexture);
 
@@ -374,13 +419,14 @@ int main()
         {
             glm::mat4 buildingModel = glm::mat4(1.0f);
             buildingModel = glm::translate(buildingModel, pos);
-            buildingModel = glm::scale(buildingModel, glm::vec3(2.0f, 5.0f, 2.0f));
+            buildingModel = glm::scale(buildingModel, glm::vec3(2.0f, 15.0f, 2.0f));
             glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(buildingModel));
 
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
 
         glBindVertexArray(0);
+
 
 
         glActiveTexture(GL_TEXTURE1);
@@ -394,6 +440,7 @@ int main()
         glBindVertexArray(groundVAO);
         glDrawArrays(GL_TRIANGLES, 0, 6);
         glBindVertexArray(0);
+
 
         glfwSwapBuffers(window);
         glfwPollEvents();
