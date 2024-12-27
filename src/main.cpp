@@ -1,4 +1,3 @@
-
 #define GLEW_STATIC
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -211,7 +210,7 @@ int main()
         bool validPosition = false;
         while(!validPosition)
         {
-            pos = glm::vec3(dis_spaceshipX(gen_spaceship), 15.0f, dis_spaceshipZ(gen_spaceship));
+            pos = glm::vec3(dis_spaceshipX(gen_spaceship), 15.0f, dis_spaceshipZ(gen_spaceship)); // Increased Y position from 5.0f to 15.0f
 
             validPosition = true;
             for(auto &existing : spaceships)
@@ -235,7 +234,7 @@ int main()
 
     std::cout << "Initialized " << spaceships.size() << " spaceships.\n";
 
-    int numberOfBuildings = 100;
+    int numberOfBuildings = 400; // Increased number of buildings from 100 to 200
 
     float buildingRangeX = 100.0f;
     float buildingRangeZ = 100.0f;
@@ -528,7 +527,7 @@ int main()
         {
             glm::mat4 buildingModel = glm::mat4(1.0f);
             buildingModel = glm::translate(buildingModel, pos);
-            buildingModel = glm::scale(buildingModel, glm::vec3(2.0f, 15.0f, 2.0f));
+            buildingModel = glm::scale(buildingModel, glm::vec3(3.0f, 15.0f, 3.0f)); // Increased building width from 2.0f to 3.0f
             glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(buildingModel));
 
             glDrawArrays(GL_TRIANGLES, 0, 36);
