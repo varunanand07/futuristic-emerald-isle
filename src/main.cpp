@@ -46,9 +46,11 @@ struct Spaceship {
 std::vector<Spaceship> spaceships;
 
 std::vector<glm::vec3> buildingPositions;
+std::vector<float> buildingHeights;
 
 float minBuildingDistance = 5.0f;
 float minSpaceshipDistance = 10.0f;
+float minDistanceShipBuilding = 5.0f;
 
 int main()
 {
@@ -193,9 +195,11 @@ int main()
     glm::vec3 fogColor(0.05f, 0.2f, 0.1f);
     float fogDensity = 0.02f;
 
-    int spaceshipCount = 5;
+    int spaceshipCount = 20;
     float rangeX = 100.0f;
     float rangeZ = 100.0f;
+
+    std::uniform_real_distribution<> dis_spaceshipY(35.0f, 50.0f);
 
     std::random_device rd_spaceship;
     std::mt19937 gen_spaceship(rd_spaceship());
@@ -210,16 +214,30 @@ int main()
         bool validPosition = false;
         while(!validPosition)
         {
-            pos = glm::vec3(dis_spaceshipX(gen_spaceship), 15.0f, dis_spaceshipZ(gen_spaceship)); // Increased Y position from 5.0f to 15.0f
+            pos = glm::vec3(dis_spaceshipX(gen_spaceship), dis_spaceshipY(gen_spaceship), dis_spaceshipZ(gen_spaceship));
 
             validPosition = true;
+
             for(auto &existing : spaceships)
             {
-                float distance = glm::distance(pos, existing.position);
+                float distance = glm::distance(glm::vec2(pos.x, pos.z), glm::vec2(existing.position.x, existing.position.z));
                 if(distance < minSpaceshipDistance)
                 {
                     validPosition = false;
                     break;
+                }
+            }
+
+            if(validPosition)
+            {
+                for(auto &buildingPos : buildingPositions)
+                {
+                    float distance = glm::distance(glm::vec2(pos.x, pos.z), glm::vec2(buildingPos.x, buildingPos.z));
+                    if(distance < minDistanceShipBuilding)
+                    {
+                        validPosition = false;
+                        break;
+                    }
                 }
             }
         }
@@ -234,7 +252,7 @@ int main()
 
     std::cout << "Initialized " << spaceships.size() << " spaceships.\n";
 
-    int numberOfBuildings = 400; // Increased number of buildings from 100 to 200
+    int numberOfBuildings = 400;
 
     float buildingRangeX = 100.0f;
     float buildingRangeZ = 100.0f;
@@ -243,6 +261,7 @@ int main()
     std::mt19937 gen_building(rd_building());
     std::uniform_real_distribution<> dis_buildingX(-buildingRangeX, buildingRangeX);
     std::uniform_real_distribution<> dis_buildingZ(-buildingRangeZ, buildingRangeZ);
+    std::uniform_real_distribution<> dis_buildingHeight(10.0f, 30.0f);
 
     for(int i = 0; i < numberOfBuildings; ++i)
     {
@@ -264,9 +283,26 @@ int main()
             }
         }
         buildingPositions.push_back(pos);
+
+        float height = dis_buildingHeight(gen_building);
+        buildingHeights.push_back(height);
     }
 
     std::cout << "Generated " << buildingPositions.size() << " random building positions.\n";
+
+    std::vector<glm::mat4> buildingModels;
+    for(size_t i = 0; i < buildingPositions.size(); ++i)
+    {
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::translate(model, buildingPositions[i]);
+        model = glm::scale(model, glm::vec3(3.0f, buildingHeights[i], 3.0f));
+        buildingModels.push_back(model);
+    }
+
+    GLuint instanceVBO;
+    glGenBuffers(1, &instanceVBO);
+    glBindBuffer(GL_ARRAY_BUFFER, instanceVBO);
+    glBufferData(GL_ARRAY_BUFFER, buildingModels.size() * sizeof(glm::mat4), &buildingModels[0], GL_STATIC_DRAW);
 
     GLfloat groundVertices[] = {
         -100.0f, -1.0f, -100.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f,
@@ -363,9 +399,27 @@ int main()
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
     glEnableVertexAttribArray(2);
 
+    glBindBuffer(GL_ARRAY_BUFFER, instanceVBO);
+    std::size_t vec4Size = sizeof(glm::vec4);
+    glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, 4 * vec4Size, (GLvoid*)0);
+    glEnableVertexAttribArray(3);
+    glVertexAttribDivisor(3, 1);
+
+    glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, 4 * vec4Size, (GLvoid*)(vec4Size));
+    glEnableVertexAttribArray(4);
+    glVertexAttribDivisor(4, 1);
+
+    glVertexAttribPointer(5, 4, GL_FLOAT, GL_FALSE, 4 * vec4Size, (GLvoid*)(2 * vec4Size));
+    glEnableVertexAttribArray(5);
+    glVertexAttribDivisor(5, 1);
+
+    glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, 4 * vec4Size, (GLvoid*)(3 * vec4Size));
+    glEnableVertexAttribArray(6);
+    glVertexAttribDivisor(6, 1);
+
     glBindVertexArray(0);
 
-    std::cout << "Building VAO and VBO set up.\n";
+    std::cout << "Building VAO and VBO set up with instancing.\n";
 
     GLuint buildingTexture;
     glGenTextures(1, &buildingTexture);
@@ -473,19 +527,34 @@ int main()
                 std::uniform_real_distribution<> disZ_ship(-rangeZ, rangeZ);
                 std::uniform_real_distribution<> disDir_ship(0.0f, 360.0f);
                 std::uniform_real_distribution<> disSpeed_ship(5.0f, 15.0f);
+                std::uniform_real_distribution<> disY_ship(35.0f, 50.0f);
 
                 glm::vec3 newPos;
                 bool valid = false;
                 while(!valid)
                 {
-                    newPos = glm::vec3(disX_ship(gen_ship), 15.0f, disZ_ship(gen_ship));
+                    newPos = glm::vec3(disX_ship(gen_ship), disY_ship(gen_ship), disZ_ship(gen_ship));
                     valid = true;
+
                     for(auto &otherShip : spaceships)
                     {
                         if(&otherShip != &ship)
                         {
-                            float distance = glm::distance(newPos, otherShip.position);
+                            float distance = glm::distance(glm::vec2(newPos.x, newPos.z), glm::vec2(otherShip.position.x, otherShip.position.z));
                             if(distance < minSpaceshipDistance)
+                            {
+                                valid = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    if(valid)
+                    {
+                        for(auto &buildingPos : buildingPositions)
+                        {
+                            float distance = glm::distance(glm::vec2(newPos.x, newPos.z), glm::vec2(buildingPos.x, buildingPos.z));
+                            if(distance < minDistanceShipBuilding)
                             {
                                 valid = false;
                                 break;
@@ -506,7 +575,10 @@ int main()
 
             glm::mat4 shipModel = glm::mat4(1.0f);
             shipModel = glm::translate(shipModel, ship.position);
-            shipModel = glm::rotate(shipModel, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+            
+            float rotationAngle = atan2(ship.direction.x, ship.direction.z);
+            shipModel = glm::rotate(shipModel, rotationAngle, glm::vec3(0.0f, 1.0f, 0.0f));
+
             shipModel = glm::scale(shipModel, glm::vec3(0.01f, 0.01f, 0.01f));
             glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(shipModel));
             myModel.Draw(ourShader);
@@ -522,17 +594,7 @@ int main()
         glUniform1i(isBuildingLoc, GL_TRUE);
 
         glBindVertexArray(buildingVAO);
-
-        for (const auto& pos : buildingPositions)
-        {
-            glm::mat4 buildingModel = glm::mat4(1.0f);
-            buildingModel = glm::translate(buildingModel, pos);
-            buildingModel = glm::scale(buildingModel, glm::vec3(3.0f, 15.0f, 3.0f)); // Increased building width from 2.0f to 3.0f
-            glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(buildingModel));
-
-            glDrawArrays(GL_TRIANGLES, 0, 36);
-        }
-
+        glDrawArraysInstanced(GL_TRIANGLES, 0, 36, buildingModels.size());
         glBindVertexArray(0);
 
 
@@ -569,6 +631,7 @@ int main()
     glDeleteBuffers(1, &groundVBO);
     glDeleteVertexArrays(1, &buildingVAO);
     glDeleteBuffers(1, &buildingVBO);
+    glDeleteBuffers(1, &instanceVBO);
 
     glfwTerminate();
     return 0;
