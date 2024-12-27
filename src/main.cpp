@@ -236,8 +236,8 @@ int main()
     }
 
     glm::vec3 lightPos(2.0f, 2.0f, 2.0f);
-    glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
-    glm::vec3 objectColor(1.0f, 1.0f, 1.0f);
+    glm::vec3 lightColor(0.0f, 1.0f, 0.0f);
+    glm::vec3 objectColor(0.0f, 1.0f, 0.0f);
     glm::vec3 fogColor(0.05f, 0.2f, 0.1f);
     float fogDensity = 0.05f;
 
@@ -370,7 +370,7 @@ int main()
         lightPos.x = sin(glfwGetTime()) * 2.0f;
         lightPos.z = cos(glfwGetTime()) * 2.0f;
 
-        glClearColor(0.05f, 0.2f, 0.1f, 1.0f);
+        glClearColor(fogColor.r, fogColor.g, fogColor.b, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         ourShader.use();
@@ -418,7 +418,7 @@ int main()
         lightShader.use();
         glm::mat4 lightModel = glm::mat4(1.0f);
         lightModel = glm::translate(lightModel, lightPos);
-        lightModel = glm::scale(lightModel, glm::vec3(1.0f));
+        lightModel = glm::scale(lightModel, glm::vec3(0.3f));
         glUniformMatrix4fv(glGetUniformLocation(lightShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(lightModel));
         glUniformMatrix4fv(glGetUniformLocation(lightShader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
         glUniformMatrix4fv(glGetUniformLocation(lightShader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
