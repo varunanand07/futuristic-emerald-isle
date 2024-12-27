@@ -818,7 +818,6 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/u8path.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/sstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/iostream \
-  /Users/varunanand/futuristic-emerald-isle/src/camera.h \
   /opt/homebrew/include/glm/glm.hpp \
   /opt/homebrew/include/glm/detail/_fixes.hpp \
   /opt/homebrew/include/glm/detail/setup.hpp \
@@ -974,16 +973,19 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o: \
   /opt/homebrew/include/glm/vector_relational.hpp \
   /opt/homebrew/include/glm/integer.hpp \
   /opt/homebrew/include/glm/detail/func_integer.inl \
-  /opt/homebrew/include/glm/gtc/matrix_transform.hpp \
+  /opt/homebrew/include/glm/gtc/type_ptr.hpp \
+  /opt/homebrew/include/glm/gtc/../gtc/quaternion.hpp \
+  /opt/homebrew/include/glm/gtc/../gtc/constants.hpp \
+  /opt/homebrew/include/glm/gtc/../ext/scalar_constants.hpp \
+  /opt/homebrew/include/glm/./ext/scalar_constants.inl \
+  /opt/homebrew/include/glm/gtc/constants.inl \
+  /opt/homebrew/include/glm/gtc/../gtc/matrix_transform.hpp \
   /opt/homebrew/include/glm/gtc/../mat4x4.hpp \
   /opt/homebrew/include/glm/gtc/../vec2.hpp \
   /opt/homebrew/include/glm/gtc/../vec3.hpp \
   /opt/homebrew/include/glm/gtc/../vec4.hpp \
   /opt/homebrew/include/glm/gtc/../ext/matrix_projection.hpp \
   /opt/homebrew/include/glm/./ext/../gtc/constants.hpp \
-  /opt/homebrew/include/glm/gtc/../ext/scalar_constants.hpp \
-  /opt/homebrew/include/glm/./ext/scalar_constants.inl \
-  /opt/homebrew/include/glm/gtc/constants.inl \
   /opt/homebrew/include/glm/./ext/../geometric.hpp \
   /opt/homebrew/include/glm/./ext/../trigonometric.hpp \
   /opt/homebrew/include/glm/./ext/../matrix.hpp \
@@ -997,11 +999,6 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o: \
   /opt/homebrew/include/glm/gtc/../geometric.hpp \
   /opt/homebrew/include/glm/gtc/../trigonometric.hpp \
   /opt/homebrew/include/glm/gtc/../matrix.hpp \
-  /Users/varunanand/futuristic-emerald-isle/include/stb_image.h \
-  /opt/homebrew/include/glm/gtc/type_ptr.hpp \
-  /opt/homebrew/include/glm/gtc/../gtc/quaternion.hpp \
-  /opt/homebrew/include/glm/gtc/../gtc/constants.hpp \
-  /opt/homebrew/include/glm/gtc/../gtc/matrix_transform.hpp \
   /opt/homebrew/include/glm/gtc/../ext/vector_relational.hpp \
   /opt/homebrew/include/glm/./ext/../detail/qualifier.hpp \
   /opt/homebrew/include/glm/./ext/vector_relational.inl \
@@ -1074,4 +1071,10 @@ CMakeFiles/FuturisticEmeraldIsle.dir/src/main.cpp.o: \
   /opt/homebrew/include/glm/gtc/../mat3x4.hpp \
   /opt/homebrew/include/glm/gtc/../mat4x2.hpp \
   /opt/homebrew/include/glm/gtc/../mat4x3.hpp \
-  /opt/homebrew/include/glm/gtc/type_ptr.inl
+  /opt/homebrew/include/glm/gtc/type_ptr.inl \
+  /Users/varunanand/futuristic-emerald-isle/src/camera.h \
+  /opt/homebrew/include/glm/gtc/matrix_transform.hpp \
+  /Users/varunanand/futuristic-emerald-isle/src/model.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/map \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tree \
+  /Users/varunanand/futuristic-emerald-isle/include/stb_image.h
