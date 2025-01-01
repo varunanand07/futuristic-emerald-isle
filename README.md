@@ -1,6 +1,6 @@
 # Toward a Futuristic Emerald Isle  
 
-This project is an advanced graphics application built using **C/C++** with **shader-based OpenGL 3.3**, designed to showcase expertise in real-time rendering, interactive environments, and high-performance graphics programming. The application demonstrates innovative techniques for creating infinite scenes, realistic lighting, textures, and animations, along with implementing advanced graphics features.
+This project is an advanced graphics application built using **C++** with **shader-based OpenGL 3.3**, designed to showcase expertise in real-time rendering, interactive environments, and high-performance graphics programming. The application demonstrates innovative techniques for creating infinite scenes, realistic lighting, textures, and animations, along with implementing advanced graphics features.
 
 ---
 
